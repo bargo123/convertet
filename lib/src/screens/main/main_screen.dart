@@ -1,6 +1,6 @@
 import 'package:converter/locator.dart';
-import 'package:converter/src/core/enums/favourites_enum.dart';
-import 'package:converter/src/core/models/country_model.dart';
+import 'package:converter/src/enums/favourites_enum.dart';
+import 'package:converter/src/models/country_model.dart';
 import 'package:converter/src/screens/main/main_bloc.dart';
 import 'package:converter/src/core/utils/bottom_sheets_util.dart';
 import 'package:flutter/material.dart';

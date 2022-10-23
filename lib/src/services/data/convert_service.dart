@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../locator.dart';
 import '../../core/constants/api_constants.dart';
-import '../../core/enums/http_enum.dart';
+import '../../enums/http_enum.dart';
 import '../../core/repository/http_repo.dart';
 
 @Singleton()

@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:converter/src/core/models/country_model.dart';
+import 'package:converter/src/models/country_model.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
