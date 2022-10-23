@@ -1,4 +1,5 @@
 import 'package:converter/locator.dart';
+import 'package:converter/src/enums/favourites_enum.dart';
 import 'package:converter/src/models/country_model.dart';
 import 'package:converter/src/screens/main/main_bloc.dart';
 import 'package:converter/src/utils/bottom_sheets_util.dart';
@@ -24,97 +25,105 @@ class _MainScreenState extends CustomState<MainScreen, MainBloc> {
     return Scaffold(
         body: Padding(
       padding: const EdgeInsets.all(18),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          TextField(
-            keyboardType: TextInputType.number,
-            controller: convertFromController,
-            decoration: InputDecoration(
-                prefixIcon: StreamBuilder<CountryResult>(
-                    stream: bloc.selectedFromCountryStream,
-                    builder: (context, snapshot) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: InkWell(
-                          onTap: () {
-                            getIt<BottomSheetsUtil>().countriesBottomSheet(context,
-                                countryData: bloc.listOfCountries?.country ?? [], onCountrySelected: (selectedCountry) {
-                              bloc.setCountryFrom = selectedCountry;
-                              Navigator.pop(context);
-                            });
-                          },
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              snapshot.data != null
-                                  ? Row(children: [
-                                      Image.network(snapshot.data?.image ?? ""),
-                                      const SizedBox(
-                                        width: 3,
+      child: StreamBuilder<Object>(
+          initialData: LoadingStatus.InProgress,
+          stream: bloc.loadingStatusStream,
+          builder: (context, snapshot) {
+            return snapshot.data == LoadingStatus.Finished
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextField(
+                        keyboardType: TextInputType.number,
+                        controller: convertFromController,
+                        decoration: InputDecoration(
+                            prefixIcon: StreamBuilder<CountryResult>(
+                                stream: bloc.selectedFromCountryStream,
+                                builder: (context, snapshot) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: InkWell(
+                                      onTap: () {
+                                        getIt<BottomSheetsUtil>()
+                                            .countriesBottomSheet(context, countryData: bloc.listOfCountries?.country ?? [],
+                                                onCountrySelected: (selectedCountry) {
+                                          bloc.setCountryFrom = selectedCountry;
+                                          Navigator.pop(context);
+                                        });
+                                      },
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          snapshot.data != null
+                                              ? Row(children: [
+                                                  Image.network(snapshot.data?.image ?? ""),
+                                                  const SizedBox(
+                                                    width: 3,
+                                                  ),
+                                                  Text(snapshot.data?.currencyName ?? "")
+                                                ])
+                                              : const Text("Select Country"),
+                                          const Icon(Icons.arrow_drop_down)
+                                        ],
                                       ),
-                                      Text(snapshot.data?.currencyName ?? "")
-                                    ])
-                                  : const Text("Select Country"),
-                              const Icon(Icons.arrow_drop_down)
-                            ],
-                          ),
-                        ),
-                      );
-                    }),
-                hintText: "Convert From",
-                border: const OutlineInputBorder()),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-              onPressed: () async {
-                convertToController.text = await bloc.convert(convertFromController.text);
-              },
-              child: Text("Convert")),
-          const SizedBox(
-            height: 20,
-          ),
-          TextField(
-            readOnly: true,
-            onTap: () {
-              getIt<BottomSheetsUtil>().countriesBottomSheet(context, countryData: bloc.listOfCountries?.country ?? [],
-                  onCountrySelected: (selectedCountry) {
-                bloc.setCountryTo = selectedCountry;
-                Navigator.pop(context);
-              });
-            },
-            keyboardType: TextInputType.number,
-            controller: convertToController,
-            decoration: InputDecoration(
-                prefixIcon: StreamBuilder<CountryResult>(
-                    stream: bloc.selectedToCountryStream,
-                    builder: (context, snapshot) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            snapshot.data != null
-                                ? Row(children: [
-                                    Image.network(snapshot.data?.image ?? ""),
-                                    const SizedBox(
-                                      width: 3,
                                     ),
-                                    Text(snapshot.data?.currencyName ?? "")
-                                  ])
-                                : const Text("Select Country"),
-                            const Icon(Icons.arrow_drop_down)
-                          ],
-                        ),
-                      );
-                    }),
-                hintText: "Convert To",
-                border: const OutlineInputBorder()),
-          )
-        ],
-      ),
+                                  );
+                                }),
+                            hintText: "Convert From",
+                            border: const OutlineInputBorder()),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: () async {
+                            convertToController.text = await bloc.convert(convertFromController.text);
+                          },
+                          child: Text("Convert")),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      TextField(
+                        readOnly: true,
+                        onTap: () {
+                          getIt<BottomSheetsUtil>().countriesBottomSheet(context,
+                              countryData: bloc.listOfCountries?.country ?? [], onCountrySelected: (selectedCountry) {
+                            bloc.setCountryTo = selectedCountry;
+                            Navigator.pop(context);
+                          });
+                        },
+                        keyboardType: TextInputType.number,
+                        controller: convertToController,
+                        decoration: InputDecoration(
+                            prefixIcon: StreamBuilder<CountryResult>(
+                                stream: bloc.selectedToCountryStream,
+                                builder: (context, snapshot) {
+                                  return Padding(
+                                    padding: const EdgeInsets.only(left: 8.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        snapshot.data != null
+                                            ? Row(children: [
+                                                Image.network(snapshot.data?.image ?? ""),
+                                                const SizedBox(
+                                                  width: 3,
+                                                ),
+                                                Text(snapshot.data?.currencyName ?? "")
+                                              ])
+                                            : const Text("Select Country"),
+                                        const Icon(Icons.arrow_drop_down)
+                                      ],
+                                    ),
+                                  );
+                                }),
+                            hintText: "Convert To",
+                            border: const OutlineInputBorder()),
+                      )
+                    ],
+                  )
+                : Center(child: CircularProgressIndicator());
+          }),
     ));
   }
 
