@@ -4,9 +4,10 @@ import 'package:converter/src/database/db_operations.dart';
 import 'package:converter/src/enums/http_enum.dart';
 import 'package:converter/src/models/country_model.dart';
 import 'package:converter/src/repository/http_repo.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
-@Singleton()
+@Injectable()
 class GetCurrenciesService {
   Future<CountryModel> getCountryData() async {
     CountryModel? curr;

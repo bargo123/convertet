@@ -31,7 +31,7 @@ _i1.GetIt $initGetIt(
   );
   gh.singleton<_i3.BottomSheetsUtil>(_i3.BottomSheetsUtil());
   gh.singleton<_i4.ConvertService>(_i4.ConvertService());
-  gh.singleton<_i5.GetCurrenciesService>(_i5.GetCurrenciesService());
+  gh.factory<_i5.GetCurrenciesService>(() => _i5.GetCurrenciesService());
   gh.singleton<_i6.HttpRepo>(_i6.HttpRepo());
   gh.factory<_i7.MainBloc>(() => _i7.MainBloc());
   gh.factoryAsync<_i8.ObjectBox>(() => _i8.ObjectBox.create());

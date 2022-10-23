@@ -17,7 +17,7 @@ class MainBloc {
   final StreamController<LoadingStatus> _loadingStatusController = StreamController<LoadingStatus>.broadcast();
   final StreamController<CountryResult> _selectedFromCountryController = StreamController<CountryResult>.broadcast();
   final StreamController<CountryResult> _selectedToCountryController = StreamController<CountryResult>.broadcast();
-  CountryModel? get listOfCountries => _listOfCountries!;
+  CountryModel? get listOfCountries => _listOfCountries;
   Stream<LoadingStatus> get loadingStatusStream => _loadingStatusController.stream;
   Stream<CountryResult> get selectedToCountryStream => _selectedToCountryController.stream;
   Stream<CountryResult> get selectedFromCountryStream => _selectedFromCountryController.stream;

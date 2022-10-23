@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:converter/src/models/country_model.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
@@ -42,7 +43,12 @@ class BottomSheetsUtil {
                             onCountrySelected(countryData[count]);
                           },
                           child: Row(children: [
-                            Image.network(countryData[count].image ?? ""),
+                            CachedNetworkImage(
+                              imageUrl: countryData[count].image!,
+                              placeholder: (context, s) {
+                                return const Icon(Icons.image);
+                              },
+                            ),
                             const SizedBox(
                               width: 3,
                             ),
