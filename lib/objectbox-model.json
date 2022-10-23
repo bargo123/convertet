@@ -1,0 +1,76 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "2:8325328108804318999",
+      "lastPropertyId": "8:6033535043895616986",
+      "name": "CountryResult",
+      "properties": [
+        {
+          "id": "1:787990348451983005",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:2397987294266923416",
+          "name": "alpha3",
+          "type": 9
+        },
+        {
+          "id": "3:2313427835133961727",
+          "name": "currencyId",
+          "type": 9
+        },
+        {
+          "id": "4:3987660651595199137",
+          "name": "currencyName",
+          "type": 9
+        },
+        {
+          "id": "5:3342526436265048159",
+          "name": "currencySymbol",
+          "type": 9
+        },
+        {
+          "id": "6:2834446109681202675",
+          "name": "uid",
+          "type": 9,
+          "flags": 2080,
+          "indexId": "2:6750833178069626784"
+        },
+        {
+          "id": "7:5443417581323207372",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "8:6033535043895616986",
+          "name": "image",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:8325328108804318999",
+  "lastIndexId": "2:6750833178069626784",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [
+    6509655055813645433
+  ],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [
+    8532979751907238660,
+    8921258798018016236,
+    3698642586116934279,
+    5672967209237382131
+  ],
+  "retiredRelationUids": [],
+  "version": 1
+}
