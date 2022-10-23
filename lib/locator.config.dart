@@ -8,14 +8,13 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'src/database/db_operations.dart' as _i9;
-import 'src/database/object_box.dart' as _i8;
-import 'src/repository/http_repo.dart' as _i6;
+import 'src/core/database/db_operations.dart' as _i9;
+import 'src/core/database/object_box.dart' as _i8;
+import 'src/core/repository/http_repo.dart' as _i6;
 import 'src/screens/main/main_bloc.dart' as _i7;
 import 'src/services/data/convert_service.dart' as _i4;
 import 'src/services/data/get_currencies_service.dart' as _i5;
-import 'src/utils/bottom_sheets_util.dart'
-    as _i3; // ignore_for_file: unnecessary_lambdas
+import 'src/core/utils/bottom_sheets_util.dart' as _i3; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -35,7 +34,6 @@ _i1.GetIt $initGetIt(
   gh.singleton<_i6.HttpRepo>(_i6.HttpRepo());
   gh.factory<_i7.MainBloc>(() => _i7.MainBloc());
   gh.factoryAsync<_i8.ObjectBox>(() => _i8.ObjectBox.create());
-  gh.singletonAsync<_i9.DbOperations>(
-      () async => _i9.DbOperations(await get.getAsync<_i8.ObjectBox>()));
+  gh.singletonAsync<_i9.DbOperations>(() async => _i9.DbOperations(await get.getAsync<_i8.ObjectBox>()));
   return get;
 }

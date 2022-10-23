@@ -1,13 +1,13 @@
 import 'package:converter/locator.dart';
-import 'package:converter/src/enums/favourites_enum.dart';
-import 'package:converter/src/models/country_model.dart';
+import 'package:converter/src/core/enums/favourites_enum.dart';
+import 'package:converter/src/core/models/country_model.dart';
 import 'package:converter/src/screens/main/main_bloc.dart';
-import 'package:converter/src/utils/bottom_sheets_util.dart';
+import 'package:converter/src/core/utils/bottom_sheets_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../../utils/custom_state.dart';
+import '../../core/utils/custom_state.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

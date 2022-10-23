@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../locator.dart';
+import '../../../../locator.dart';
 import '../enums/http_enum.dart';
 
 @Singleton()

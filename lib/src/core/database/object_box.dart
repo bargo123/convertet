@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:objectbox/objectbox.dart';
 
-import '../../objectbox.g.dart';
+import '../../../objectbox.g.dart';
 
 @injectable
 class ObjectBox {

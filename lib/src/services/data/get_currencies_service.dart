@@ -1,9 +1,9 @@
 import 'package:converter/locator.dart';
-import 'package:converter/src/constants/api_constants.dart';
-import 'package:converter/src/database/db_operations.dart';
-import 'package:converter/src/enums/http_enum.dart';
-import 'package:converter/src/models/country_model.dart';
-import 'package:converter/src/repository/http_repo.dart';
+import 'package:converter/src/core/constants/api_constants.dart';
+import 'package:converter/src/core/database/db_operations.dart';
+import 'package:converter/src/core/enums/http_enum.dart';
+import 'package:converter/src/core/models/country_model.dart';
+import 'package:converter/src/core/repository/http_repo.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 

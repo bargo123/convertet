@@ -1,4 +1,4 @@
-import 'package:converter/src/constants/api_constants.dart';
+import 'package:converter/src/core/constants/api_constants.dart';
 import 'package:objectbox/objectbox.dart';
 
 class CountryModel {

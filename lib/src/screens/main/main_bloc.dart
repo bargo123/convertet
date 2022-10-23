@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:converter/locator.dart';
-import 'package:converter/src/models/country_model.dart';
+import 'package:converter/src/core/models/country_model.dart';
 import 'package:converter/src/services/data/convert_service.dart';
 import 'package:converter/src/services/data/get_currencies_service.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../enums/favourites_enum.dart';
+import '../../core/enums/favourites_enum.dart';
 
 @Injectable()
 class MainBloc {

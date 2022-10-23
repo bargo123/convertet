@@ -1,7 +1,7 @@
 // @dart=2.9
 import 'package:converter/locator.dart';
-import 'package:converter/src/database/db_operations.dart';
-import 'package:converter/src/models/country_model.dart';
+import 'package:converter/src/core/database/db_operations.dart';
+import 'package:converter/src/core/models/country_model.dart';
 import 'package:converter/src/services/data/get_currencies_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

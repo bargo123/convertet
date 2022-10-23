@@ -1,7 +1,7 @@
 // @dart=2.9
 import 'package:converter/locator.dart';
 import 'package:converter/main.dart';
-import 'package:converter/src/models/country_model.dart';
+import 'package:converter/src/core/models/country_model.dart';
 import 'package:converter/src/screens/main/main_bloc.dart';
 import 'package:converter/src/services/data/convert_service.dart';
 import 'package:converter/src/services/data/get_currencies_service.dart';
